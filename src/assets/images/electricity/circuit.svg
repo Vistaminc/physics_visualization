@@ -1,0 +1,54 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="240" height="240" fill="#f5f5f5" rx="10" ry="10"/>
+  
+  <!-- 电路背景 -->
+  <rect x="20" y="20" width="200" height="200" fill="#E3F2FD" rx="8" ry="8"/>
+  
+  <!-- 电路线 -->
+  <path d="M 40 120 L 80 120 M 100 120 L 140 120 M 160 120 L 200 120 M 120 40 L 120 80 M 120 100 L 120 120" 
+        stroke="#333" stroke-width="3" fill="none"/>
+        
+  <!-- 电池 -->
+  <g transform="translate(120, 60)">
+    <rect x="-20" y="-10" width="40" height="20" fill="#8E24AA" rx="2" ry="2"/>
+    <line x1="-20" y1="0" x2="20" y2="0" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="-10" y1="-10" x2="-10" y2="10" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="10" y1="-6" x2="10" y2="6" stroke="#FFF" stroke-width="1.5"/>
+    <text x="0" y="5" font-family="Arial" font-size="12" text-anchor="middle" fill="#FFF">电池</text>
+  </g>
+  
+  <!-- 电阻 -->
+  <g transform="translate(120, 140)">
+    <rect x="-20" y="-10" width="40" height="20" fill="#FF9800" rx="2" ry="2"/>
+    <path d="M -20 0 L -15 0 L -12 -6 L -8 6 L -4 -6 L 0 6 L 4 -6 L 8 6 L 12 -6 L 15 0 L 20 0" 
+          stroke="#333" stroke-width="1.5" fill="none"/>
+    <text x="0" y="5" font-family="Arial" font-size="10" text-anchor="middle" fill="#333">电阻</text>
+  </g>
+  
+  <!-- 灯泡 -->
+  <g transform="translate(60, 120)">
+    <circle cx="0" cy="0" r="15" fill="#FFEB3B" stroke="#333" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="8" fill="#FFF59D"/>
+    <path d="M -8 -8 L 8 8 M -8 8 L 8 -8" stroke="#FED835" stroke-width="1.5"/>
+    <text x="0" y="25" font-family="Arial" font-size="10" text-anchor="middle" fill="#333">灯泡</text>
+  </g>
+  
+  <!-- 开关 -->
+  <g transform="translate(180, 120)">
+    <circle cx="-10" cy="0" r="3" fill="#333"/>
+    <circle cx="10" cy="0" r="3" fill="#333"/>
+    <path d="M -10 0 L 8 -10" stroke="#333" stroke-width="2" fill="none"/>
+    <text x="0" y="25" font-family="Arial" font-size="10" text-anchor="middle" fill="#333">开关</text>
+  </g>
+  
+  <!-- 电流方向 -->
+  <g transform="translate(120, 180)">
+    <path d="M -60 0 Q -30 -40 0 0 Q 30 40 60 0" stroke="#1E88E5" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+    <polygon points="55,0 60,5 60,-5" fill="#1E88E5"/>
+    <text x="0" y="20" font-family="Arial" font-size="12" text-anchor="middle" fill="#1E88E5">电流方向</text>
+  </g>
+  
+  <!-- 标题 -->
+  <text x="120" y="30" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">简单电路示意图</text>
+</svg> 

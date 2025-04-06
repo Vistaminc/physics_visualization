@@ -1,0 +1,267 @@
+// Variables
+:root {
+  // Primary and secondary colors
+  --primary-color: #1976D2; // Professional blue
+  --primary-light: #63a4ff;
+  --primary-dark: #004ba0;
+  --secondary-color: #FF5722; // Energetic orange
+  --secondary-light: #ff8a50;
+  --secondary-dark: #c41c00;
+  
+  // Semantic colors
+  --success-color: #4CAF50;
+  --warning-color: #FFC107;
+  --error-color: #F44336;
+  --info-color: #2196F3;
+  
+  // Neutral colors
+  --bg-color: #F9FAFB;
+  --surface-color: #FFFFFF;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --text-hint: #9E9E9E;
+  --divider-color: #EEEEEE;
+  
+  // Spacing variables
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  // Typography
+  --font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 24px;
+  --font-size-display: 32px;
+  
+  // Radius
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  
+  // Shadows
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.14);
+  
+  // Animation timing
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
+  
+  // Z-index levels
+  --z-header: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+  --z-toast: 4000;
+}
+
+// Dark theme variables
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --surface-color: #1E1E1E;
+  --text-primary: #EEEEEE;
+  --text-secondary: #AAAAAA;
+  --text-hint: #888888;
+  --divider-color: #2C2C2C;
+  
+  // Adjust primary and secondary for dark mode
+  --primary-light: #004ba0;
+  --primary-dark: #63a4ff;
+}
+
+// Reset and base styles
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+  line-height: 1.5;
+  transition: background-color var(--transition-normal) ease;
+}
+
+// Transitions
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--transition-normal) ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: transform var(--transition-normal) ease;
+}
+
+.slide-right-enter-from,
+.slide-right-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+// Typography styles
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--font-size-display);
+}
+
+h2 {
+  font-size: var(--font-size-xxl);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast) ease;
+  
+  &:hover {
+    color: var(--primary-light);
+  }
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.mb-1 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-3 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mt-1 {
+  margin-top: var(--spacing-sm);
+}
+
+.mt-2 {
+  margin-top: var(--spacing-md);
+}
+
+.mt-3 {
+  margin-top: var(--spacing-lg);
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+// Animations
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+// Responsive breakpoints
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  h1 {
+    font-size: var(--font-size-xxl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+} 

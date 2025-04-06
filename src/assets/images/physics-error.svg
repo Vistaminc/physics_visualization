@@ -1,0 +1,25 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="400" height="300" fill="#f5f5f5" />
+  
+  <!-- Broken pendulum -->
+  <line x1="200" y1="50" x2="200" y2="80" stroke="#666666" stroke-width="2" />
+  <path d="M 200 80 Q 240 150 260 120" stroke="#1976D2" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+  <circle cx="260" cy="120" r="20" fill="#1976D2" />
+  
+  <!-- Broken equation -->
+  <text x="70" y="200" font-family="sans-serif" font-size="24" fill="#333333">404 = mc²</text>
+  <line x1="100" y1="210" x2="170" y2="210" stroke="#FF5722" stroke-width="2" />
+  
+  <!-- Question marks -->
+  <text x="50" y="250" font-family="sans-serif" font-size="40" fill="#1976D2" opacity="0.5">?</text>
+  <text x="330" y="100" font-family="sans-serif" font-size="40" fill="#1976D2" opacity="0.5">?</text>
+  <text x="300" y="250" font-family="sans-serif" font-size="40" fill="#1976D2" opacity="0.5">?</text>
+  
+  <!-- Magnifying glass -->
+  <circle cx="100" cy="100" r="30" fill="none" stroke="#FF5722" stroke-width="3" />
+  <line x1="120" y1="120" x2="150" y2="150" stroke="#FF5722" stroke-width="5" />
+  
+  <!-- Dotted path -->
+  <path d="M 50 270 Q 200 240 350 270" stroke="#1976D2" stroke-width="2" stroke-dasharray="5,5" fill="none" />
+</svg> 

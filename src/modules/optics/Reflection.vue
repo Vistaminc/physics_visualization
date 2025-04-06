@@ -201,7 +201,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { Compass, Brush, ZoomIn, Operation, DCaret } from '@element-plus/icons-vue'
 

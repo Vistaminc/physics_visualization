@@ -108,7 +108,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useMainStore } from '../store'
-import { Moon, Sunny, UserFilled, Share, Message, ChatDotRound, Menu, Close } from '@element-plus/icons-vue'
+import { UserFilled, Share, Message, ChatDotRound } from '@element-plus/icons-vue'
 
 // Store
 const store = useMainStore()

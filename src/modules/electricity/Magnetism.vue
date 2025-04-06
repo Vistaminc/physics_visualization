@@ -510,7 +510,7 @@ onUnmounted(() => {
             
             &.moving-coil {
               .coil {
-                left: 50 + 30 * Math.sin(0.5);
+                left: 64px;
               }
               
               .magnet {

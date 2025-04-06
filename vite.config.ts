@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [vue()],
   base: "/physics_visualization/",
   build: {
-    outDir: "build-web"
+    outDir: "docs"
   }
 })

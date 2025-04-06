@@ -7,14 +7,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+.pnp
+.pnp.js
+
+# Build outputs
 dist
 dist-ssr
 *.local
+/out/
+
+# Cache and temp files
+.cache
+.temp
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
 *.suo
@@ -22,3 +33,19 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Coverage directory
+coverage
+.nyc_output
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest coverage
+html/

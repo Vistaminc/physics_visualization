@@ -88,8 +88,11 @@
           
           <div class="footer-section">
             <h4>联系方式</h4>
-            <p>邮箱: contact@physics-viz.cn</p>
+            <p>邮箱: vistamin@outlook.com</p>
             <div class="social-icons">
+              <a href="https://github.com/user/physics_visualization" target="_blank" class="social-icon" title="GitHub">
+                <GitHubIcon :size="20" />
+              </a>
               <a href="#" class="social-icon"><el-icon><Share /></el-icon></a>
               <a href="#" class="social-icon"><el-icon><Message /></el-icon></a>
               <a href="#" class="social-icon"><el-icon><ChatDotRound /></el-icon></a>
@@ -99,6 +102,7 @@
         
         <div class="copyright">
           <p>&copy; {{ currentYear }} 高中物理可视化平台 | 保留所有权利</p>
+          <router-link to="/about" class="about-link">关于我们</router-link>
         </div>
       </div>
     </footer>
@@ -109,6 +113,7 @@
 import { ref, computed } from 'vue'
 import { useMainStore } from '../store'
 import { UserFilled, Share, Message, ChatDotRound } from '@element-plus/icons-vue'
+import GitHubIcon from '../components/icons/GitHubIcon.vue'
 
 // Store
 const store = useMainStore()
@@ -316,6 +321,16 @@ const closeMobileMenu = () => {
     color: var(--text-hint);
     padding-top: var(--spacing-lg);
     border-top: 1px solid var(--divider-color);
+    
+    .about-link {
+      color: var(--primary-color);
+      margin-top: var(--spacing-sm);
+      display: inline-block;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 

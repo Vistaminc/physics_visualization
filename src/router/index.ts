@@ -7,12 +7,14 @@ const MainLayout = () => import('../layouts/MainLayout.vue')
 // Views
 const Home = () => import('../views/Home.vue')
 const NotFound = () => import('../views/NotFound.vue')
+const About = () => import('../views/About.vue')
 
 // Physics Modules
 const MechanicsIndex = () => import('../modules/mechanics/Index.vue')
 const NewtonLaws = () => import('../modules/mechanics/NewtonLaws.vue')
 const Kinematics = () => import('../modules/mechanics/Kinematics.vue')
 const EnergyConservation = () => import('../modules/mechanics/EnergyConservation.vue')
+const ProjectileMotion = () => import('../modules/mechanics/ProjectileMotion.vue')
 
 const ElectricityIndex = () => import('../modules/electricity/Index.vue')
 const OhmLaw = () => import('../modules/electricity/OhmLaw.vue')
@@ -62,6 +64,12 @@ const routes: RouteRecordRaw[] = [
         name: 'energy-conservation',
         component: EnergyConservation,
         meta: { title: '能量守恒 - 高中物理可视化学习平台' }
+      },
+      {
+        path: 'mechanics/projectile',
+        name: 'projectile-motion',
+        component: ProjectileMotion,
+        meta: { title: '抛体运动 - 高中物理可视化学习平台' }
       },
       {
         path: 'electricity',
@@ -123,6 +131,12 @@ const routes: RouteRecordRaw[] = [
         name: 'thermal-expansion',
         component: ThermalExpansion,
         meta: { title: '热膨胀 - 高中物理可视化学习平台' }
+      },
+      {
+        path: 'about',
+        name: 'about',
+        component: About,
+        meta: { title: '关于我们 - 高中物理可视化学习平台' }
       }
     ]
   },

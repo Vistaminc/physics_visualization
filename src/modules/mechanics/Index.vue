@@ -47,6 +47,18 @@
                 </div>
               </router-link>
             </li>
+            
+            <li class="nav-item">
+              <router-link to="/mechanics/projectile" class="nav-link">
+                <div class="nav-icon">
+                  <el-icon><TopRight /></el-icon>
+                </div>
+                <div class="nav-info">
+                  <span class="nav-label">抛体运动</span>
+                  <span class="nav-description">抛物线运动、空气阻力</span>
+                </div>
+              </router-link>
+            </li>
           </ul>
         </div>
         
@@ -57,6 +69,25 @@
           </div>
           
           <div class="experiment-grid">
+            <div class="experiment-card" @click="navigateToExperiment('projectile')">
+              <div class="experiment-preview">
+                <img src="../../assets/images/mechanics/projectile.svg" alt="抛体运动" />
+              </div>
+              
+              <div class="experiment-info">
+                <h4>3D抛体运动模拟</h4>
+                <p>通过3D模拟研究空气阻力对抛体运动的影响</p>
+                <div class="experiment-meta">
+                  <span class="difficulty">
+                    <el-icon><StarFilled /></el-icon>
+                    <el-icon><StarFilled /></el-icon>
+                    <el-icon><StarFilled /></el-icon>
+                  </span>
+                  <span class="duration">约12分钟</span>
+                </div>
+              </div>
+            </div>
+            
             <div class="experiment-card" @click="navigateToExperiment('pendulum')">
               <div class="experiment-preview">
                 <img src="../../assets/images/mechanics/pendulum.svg" alt="单摆运动" />
@@ -152,7 +183,8 @@
             <ul>
               <li>直线运动与曲线运动</li>
               <li>速度与加速度</li>
-              <li>自由落体与抛体运动</li>
+              <li><router-link to="/mechanics/projectile" class="highlight">3D抛体运动与空气阻力</router-link></li>
+              <li>自由落体运动</li>
             </ul>
           </div>
 
@@ -192,19 +224,25 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { Position, Opportunity, Lightning, ArrowRight, Star, StarFilled, Document, VideoPlay, List } from '@element-plus/icons-vue'
+import { Position, Opportunity, Lightning, ArrowRight, Star, StarFilled, Document, VideoPlay, List, TopRight } from '@element-plus/icons-vue'
 
 const router = useRouter()
 
 const navigateToExperiment = (experiment: string) => {
   // In a real app, we would navigate to the specific experiment
-  // For demo, just navigate to the related module page
-  if (experiment === 'pendulum') {
-    router.push('/mechanics/newton')
-  } else if (experiment === 'collision') {
-    router.push('/mechanics/energy')
-  } else {
-    router.push('/mechanics/kinematics')
+  switch (experiment) {
+    case 'pendulum':
+      router.push('/mechanics/energy')
+      break
+    case 'projectile':
+      router.push('/mechanics/projectile')
+      break
+    case 'collision':
+      router.push('/mechanics/energy')
+      break
+    case 'inclined':
+      router.push('/mechanics/newton')
+      break
   }
 }
 </script>
@@ -463,6 +501,29 @@ const navigateToExperiment = (experiment: string) => {
           li {
             color: var(--text-secondary);
             margin-bottom: var(--spacing-sm);
+            
+            .highlight {
+              color: var(--primary-color);
+              font-weight: 500;
+              text-decoration: none;
+              position: relative;
+              
+              &:hover {
+                text-decoration: underline;
+              }
+              
+              &::after {
+                content: "新";
+                position: absolute;
+                top: -8px;
+                right: -20px;
+                background-color: #f44336;
+                color: white;
+                font-size: 10px;
+                padding: 1px 4px;
+                border-radius: 4px;
+              }
+            }
           }
         }
       }

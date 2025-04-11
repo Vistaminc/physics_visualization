@@ -102,12 +102,6 @@ const createParticles = () => {
 }
 
 const createConnections = () => {
-  const linesMaterial = new THREE.LineBasicMaterial({ 
-    color: 0x1976D2,
-    transparent: true,
-    opacity: 0.2
-  })
-  
   // We'll dynamically create and update lines during animation
   // This is just to prepare the scene for connections
 }

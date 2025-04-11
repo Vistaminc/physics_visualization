@@ -171,7 +171,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onUnmounted } from 'vue'
+import { ref, onUnmounted } from 'vue'
 
 // 系统类型
 const systemType = ref('roller-coaster') // roller-coaster, pendulum, spring

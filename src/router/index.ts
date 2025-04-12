@@ -20,6 +20,7 @@ const ElectricityIndex = () => import('../modules/electricity/Index.vue')
 const OhmLaw = () => import('../modules/electricity/OhmLaw.vue')
 const Circuits = () => import('../modules/electricity/Circuits.vue')
 const Magnetism = () => import('../modules/electricity/Magnetism.vue')
+const ElectromagneticEngines = () => import('../modules/electricity/ElectromagneticEngines.vue')
 
 const OpticsIndex = () => import('../modules/optics/Index.vue')
 const Reflection = () => import('../modules/optics/Reflection.vue')
@@ -94,6 +95,12 @@ const routes: RouteRecordRaw[] = [
         name: 'magnetism',
         component: Magnetism,
         meta: { title: '磁场与电磁感应 - 高中物理可视化学习平台' }
+      },
+      {
+        path: 'electricity/electromagnetic-engines',
+        name: 'electromagnetic-engines',
+        component: ElectromagneticEngines,
+        meta: { title: '电磁力应用 - 高中物理可视化学习平台' }
       },
       {
         path: 'optics',

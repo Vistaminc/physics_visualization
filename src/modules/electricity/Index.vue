@@ -47,6 +47,18 @@
                 </div>
               </router-link>
             </li>
+            
+            <li class="nav-item">
+              <router-link to="/electricity/electromagnetic-engines" class="nav-link">
+                <div class="nav-icon">
+                  <el-icon><SetUp /></el-icon>
+                </div>
+                <div class="nav-info">
+                  <span class="nav-label">电磁力应用</span>
+                  <span class="nav-description">电动机、发电机原理</span>
+                </div>
+              </router-link>
+            </li>
           </ul>
         </div>
         
@@ -130,6 +142,31 @@
                 </div>
               </div>
             </div>
+            
+            <div class="experiment-card" @click="navigateToExperiment('electromagnetic-engines')">
+              <div class="experiment-preview" style="background-color: #E1F5FE;">
+                <div class="motor-preview">
+                  <div class="motor-housing"></div>
+                  <div class="motor-rotor"></div>
+                  <div class="motor-field"></div>
+                  <div class="motor-arrow a1"></div>
+                  <div class="motor-arrow a2"></div>
+                </div>
+              </div>
+              
+              <div class="experiment-info">
+                <h4>电磁力应用实验</h4>
+                <p>探究电动机与发电机的工作原理及现代技术应用</p>
+                <div class="experiment-meta">
+                  <span class="difficulty">
+                    <el-icon><StarFilled /></el-icon>
+                    <el-icon><StarFilled /></el-icon>
+                    <el-icon><StarFilled /></el-icon>
+                  </span>
+                  <span class="duration">约18分钟</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -209,7 +246,7 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { Lightning, Connection, Magnet, ArrowRight, Star, StarFilled, Document, VideoPlay, List } from '@element-plus/icons-vue'
+import { Lightning, Connection, Magnet, SetUp, ArrowRight, Star, StarFilled, Document, VideoPlay, List } from '@element-plus/icons-vue'
 
 const router = useRouter()
 
@@ -641,6 +678,66 @@ const navigateToExperiment = (experiment: string) => {
       }
     }
   }
+}
+
+.motor-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .motor-housing {
+    width: 100px;
+    height: 60px;
+    background-color: #90CAF9;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .motor-rotor {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #0D47A1;
+    border-radius: 50%;
+    animation: rotate 3s linear infinite;
+  }
+  
+  .motor-field {
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    border: 2px dashed #2196F3;
+    border-radius: 40px;
+    opacity: 0.6;
+  }
+  
+  .motor-arrow {
+    position: absolute;
+    width: 30px;
+    height: 8px;
+    background-color: #FF5722;
+    clip-path: polygon(0 50%, 85% 0, 85% 40%, 100% 40%, 100% 60%, 85% 60%, 85% 100%);
+    
+    &.a1 {
+      transform: rotate(0deg);
+      top: 30px;
+      right: 30px;
+    }
+    
+    &.a2 {
+      transform: rotate(180deg);
+      bottom: 30px;
+      left: 30px;
+    }
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 // Responsive styles

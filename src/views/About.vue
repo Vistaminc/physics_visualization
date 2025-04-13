@@ -105,15 +105,15 @@
           <div class="section-content">
             <p>物理可视化学习平台是一个开源项目，我们欢迎教育工作者、开发者、学生和物理爱好者一起参与贡献，共同完善这个平台。</p>
             <div class="contribute-actions">
-              <a href="https://github.com/user/physics_visualization" target="_blank" class="contribute-link">
+              <a href="https://github.com/vistaminc/physics_visualization" target="_blank" class="contribute-link">
                 <GitHubIcon :size="20" color="white" />
                 <span>GitHub仓库</span>
               </a>
-              <a href="https://github.com/user/physics_visualization/issues" target="_blank" class="contribute-link">
+              <a href="https://github.com/vistaminc/physics_visualization/issues" target="_blank" class="contribute-link">
                 <el-icon><Warning /></el-icon>
                 <span>提交问题</span>
               </a>
-              <a href="https://github.com/user/physics_visualization/pulls" target="_blank" class="contribute-link">
+              <a href="https://github.com/vistaminc/physics_visualization/pulls" target="_blank" class="contribute-link">
                 <el-icon><DocumentAdd /></el-icon>
                 <span>贡献代码</span>
               </a>
@@ -132,7 +132,7 @@
               </div>
               <div class="contact-item">
                 <GitHubIcon class="contact-icon" :size="20" />
-                <span>GitHub：<a href="https://github.com/user/physics_visualization" target="_blank">physics_visualization</a></span>
+                <span>GitHub：<a href="https://github.com/vistaminc/physics_visualization" target="_blank">physics_visualization</a></span>
               </div>
             </div>
           </div>

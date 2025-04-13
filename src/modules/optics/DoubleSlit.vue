@@ -163,7 +163,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
 import { useRouter } from 'vue-router'
 // 移除未使用的PIXI导入
@@ -173,17 +173,17 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 // 参数设置 - 将值调整为实验合理范围
-const wavelength = ref(550) // 波长(nm)
-const slitDistance = ref(100) // 双缝间距(μm)
-const slitWidth = ref(30) // 缝宽(μm)
-const screenDistance = ref(100) // 屏幕距离(cm)
+const wavelength = ref<number>(550) // 波长(nm)
+const slitDistance = ref<number>(100) // 双缝间距(μm)
+const slitWidth = ref<number>(30) // 缝宽(μm)
+const screenDistance = ref<number>(100) // 屏幕距离(cm)
 
 // 显示选项
-const showIntensityGraph = ref(true)
-const animate = ref(true)
+const showIntensityGraph = ref<boolean>(true)
+const animate = ref<boolean>(true)
 
 // 计算属性
-const waveColor = computed(() => {
+const waveColor = computed((): string => {
   // 根据波长返回可见光颜色
   const w = wavelength.value
   if (w < 380) return '#9400D3' // 紫外线区域
@@ -196,37 +196,37 @@ const waveColor = computed(() => {
   return '#8B0000' // 红外线区域
 })
 
-const maxIntensity = computed(() => {
-  return calculateIntensity(0)
+const maxIntensity = computed((): number => {
+  return calculateIntensity(0, wavelength.value * 1e-9, slitDistance.value * 1e-6, slitWidth.value * 1e-6, screenDistance.value * 1e-2)
 })
 
-const centralMaxPosition = computed(() => {
+const centralMaxPosition = computed((): number => {
   return 0
 })
 
-const firstMinima = computed(() => {
+const firstMinima = computed((): number => {
   // 第一暗纹位置 (mm)
   return (wavelength.value * 1e-6 * screenDistance.value) / (slitDistance.value * 1e-6)
 })
 
-const centralMaxWidth = computed(() => {
+const centralMaxWidth = computed((): number => {
   // 中央明纹宽度 (mm)
   return 2 * firstMinima.value
 })
 
 // 高级选项
-const lightIntensity = ref(5)
-const sourceType = ref('monochromatic')
-const coherence = ref(95) // 相干性百分比
+const lightIntensity = ref<number>(5)
+const sourceType = ref<'monochromatic' | 'white'>('monochromatic')
+const coherence = ref<number>(95) // 相干性百分比
 
 // 动画相关
-let animationFrameId = null
+let animationFrameId: number | null = null
 
 // 渲染环境
-const experimentCtx = ref(null)
-const graphCtx = ref(null)
-const experimentCanvas = ref(null)
-const graphCanvas = ref(null)
+const experimentCtx = ref<CanvasRenderingContext2D | null>(null)
+const graphCtx = ref<CanvasRenderingContext2D | null>(null)
+const experimentCanvas = ref<HTMLCanvasElement | null>(null)
+const graphCanvas = ref<HTMLCanvasElement | null>(null)
 
 // 初始化
 onMounted(() => {
@@ -234,8 +234,8 @@ onMounted(() => {
   
   // 使用普通DOM API确保能获取到canvas元素
   const debugCanvasQuery = () => {
-    const expCanvas = document.getElementById('experiment-canvas');
-    const gCanvas = document.getElementById('graph-canvas');
+    const expCanvas = document.getElementById('experiment-canvas') as HTMLCanvasElement;
+    const gCanvas = document.getElementById('graph-canvas') as HTMLCanvasElement;
     console.log('DOM查询实验画布:', expCanvas);
     console.log('DOM查询图表画布:', gCanvas);
     console.log('Ref实验画布:', experimentCanvas.value);
@@ -297,7 +297,7 @@ onUnmounted(() => {
   stopAnimation()
 })
 
-function initCanvas() {
+function initCanvas(): void {
   console.log('初始化画布...')
   
   if (!experimentCanvas.value) {
@@ -316,7 +316,7 @@ function initCanvas() {
   drawStaticScene()
 }
 
-function handleResize() {
+function handleResize(): void {
   // 确保画布尺寸与元素匹配
   if (experimentCanvas.value) {
     const container = experimentCanvas.value.parentElement
@@ -338,7 +338,7 @@ function handleResize() {
   drawStaticScene()
 }
 
-function startAnimation() {
+function startAnimation(): void {
   // 确保不会创建多个动画循环
   stopAnimation()
   
@@ -347,14 +347,14 @@ function startAnimation() {
   }
 }
 
-function stopAnimation() {
+function stopAnimation(): void {
   if (animationFrameId) {
     cancelAnimationFrame(animationFrameId)
     animationFrameId = null
   }
 }
 
-function animationLoop() {
+function animationLoop(): void {
   // 绘制动画帧
   drawAnimatedScene()
   
@@ -364,7 +364,7 @@ function animationLoop() {
   }
 }
 
-function drawStaticScene() {
+function drawStaticScene(): void {
   // 确保画布和上下文存在
   if (!experimentCtx.value || !experimentCanvas.value) return
   
@@ -374,7 +374,7 @@ function drawStaticScene() {
   drawIntensityGraph()
 }
 
-function drawAnimatedScene() {
+function drawAnimatedScene(): void {
   // 确保画布和上下文存在
   if (!experimentCtx.value || !experimentCanvas.value) return
   
@@ -384,7 +384,7 @@ function drawAnimatedScene() {
   drawIntensityGraph()
 }
 
-function clearCanvas() {
+function clearCanvas(): void {
   if (experimentCtx.value && experimentCanvas.value) {
     const canvas = experimentCanvas.value
     experimentCtx.value.clearRect(0, 0, canvas.width, canvas.height)
@@ -396,7 +396,7 @@ function clearCanvas() {
   }
 }
 
-function drawApparatus() {
+function drawApparatus(): void {
   const ctx = experimentCtx.value
   const canvas = experimentCanvas.value
   if (!ctx || !canvas) return
@@ -489,7 +489,7 @@ function drawApparatus() {
   ctx.restore()
 }
 
-function drawInterferencePattern(animated) {
+function drawInterferencePattern(animated: boolean): void {
   const ctx = experimentCtx.value
   const canvas = experimentCanvas.value
   if (!ctx || !canvas) return
@@ -571,7 +571,7 @@ function drawInterferencePattern(animated) {
   ctx.restore()
 }
 
-function drawIntensityGraph() {
+function drawIntensityGraph(): void {
   if (!showIntensityGraph.value || !graphCtx.value || !graphCanvas.value) return
   
   const ctx = graphCtx.value
@@ -664,7 +664,7 @@ function drawIntensityGraph() {
   ctx.stroke()
 }
 
-function calculateIntensity(position, wavelength, slitDistance, slitWidth, screenDistance) {
+function calculateIntensity(position: number, wavelength: number, slitDistance: number, slitWidth: number, screenDistance: number): number {
   // 双缝干涉 + 单缝衍射 综合公式
   // 路径差
   const pathDiff = position * slitDistance / screenDistance
@@ -686,13 +686,13 @@ function calculateIntensity(position, wavelength, slitDistance, slitWidth, scree
   return interferenceIntensity * diffractionIntensity
 }
 
-function applyCoherence(intensity) {
+function applyCoherence(intensity: number): number {
   // 相干性影响最大与最小强度之间的对比度
   const minIntensity = (100 - coherence.value) / 100
   return minIntensity + (1 - minIntensity) * intensity
 }
 
-function adjustColorAlpha(color, alpha) {
+function adjustColorAlpha(color: string, alpha: number): string {
   if (color.startsWith('#')) {
     // 将十六进制转换为RGB
     const r = parseInt(color.slice(1, 3), 16)
@@ -710,7 +710,7 @@ function adjustColorAlpha(color, alpha) {
   return color
 }
 
-function wavelengthToColor(wavelength) {
+function wavelengthToColor(wavelength: number): string {
   let r, g, b
   
   if (wavelength >= 380 && wavelength < 440) {
@@ -751,7 +751,7 @@ function wavelengthToColor(wavelength) {
   return `rgb(${r}, ${g}, ${b})`
 }
 
-function calculateFringeSpacing() {
+function calculateFringeSpacing(): number {
   // 条纹间距 = λL/d，其中 λ 是波长，L 是屏幕距离，d 是缝隙间距
   const lambda = wavelength.value * 1e-9 // 波长，转换为米
   const L = screenDistance.value * 1e-2 // 屏幕距离，转换为米
@@ -762,7 +762,7 @@ function calculateFringeSpacing() {
   return fringeSpacing
 }
 
-function calculateCentralFringeWidth() {
+function calculateCentralFringeWidth(): number {
   // 中央条纹宽度 = 2λL/a，其中 a 是单个缝隙宽度
   const lambda = wavelength.value * 1e-9 // 波长，转换为米
   const L = screenDistance.value * 1e-2 // 屏幕距离，转换为米
@@ -773,7 +773,7 @@ function calculateCentralFringeWidth() {
   return centralWidth
 }
 
-function calculateDiffractionAngle() {
+function calculateDiffractionAngle(): number {
   // 第一极大的衍射角 θ = arcsin(λ/d)
   const lambda = wavelength.value * 1e-9 // 波长，转换为米
   const d = slitDistance.value * 1e-6 // 缝隙间距，转换为米
@@ -783,7 +783,7 @@ function calculateDiffractionAngle() {
   return angle
 }
 
-function calculateVisibleFringes() {
+function calculateVisibleFringes(): number {
   // 缝隙衍射包络函数中的明条纹数 N = a/λ，其中 a 是缝隙宽度
   const lambda = wavelength.value * 1e-9 // 波长，转换为米
   const a = slitWidth.value * 1e-6 // 缝隙宽度，转换为米
@@ -794,7 +794,7 @@ function calculateVisibleFringes() {
   return N * 2 + 1 // 包括中央明条纹
 }
 
-function updateSimulation() {
+function updateSimulation(): void {
   // 打印日志以便调试
   console.log('更新参数:', {
     波长: wavelength.value,
@@ -818,7 +818,7 @@ function updateSimulation() {
   }
 }
 
-function toggleAnimation() {
+function toggleAnimation(): void {
   if (animate.value) {
     startAnimation()
   } else {

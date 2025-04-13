@@ -28,6 +28,7 @@ const Refraction = () => import('../modules/optics/Refraction.vue')
 const Lenses = () => import('../modules/optics/Lenses.vue')
 const DoubleSlit = () => import('../modules/optics/DoubleSlit.vue')
 
+
 // 添加热学模块
 const ThermalIndex = () => import('../modules/thermal/Index.vue')
 const ThermalExpansion = () => import('../modules/thermal/Expansion.vue')

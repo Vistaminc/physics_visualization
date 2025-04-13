@@ -20,11 +20,14 @@ const ElectricityIndex = () => import('../modules/electricity/Index.vue')
 const OhmLaw = () => import('../modules/electricity/OhmLaw.vue')
 const Circuits = () => import('../modules/electricity/Circuits.vue')
 const Magnetism = () => import('../modules/electricity/Magnetism.vue')
+const ElectromagneticEngines = () => import('../modules/electricity/ElectromagneticEngines.vue')
 
 const OpticsIndex = () => import('../modules/optics/Index.vue')
 const Reflection = () => import('../modules/optics/Reflection.vue')
 const Refraction = () => import('../modules/optics/Refraction.vue')
 const Lenses = () => import('../modules/optics/Lenses.vue')
+const DoubleSlit = () => import('../modules/optics/DoubleSlit.vue')
+
 
 // 添加热学模块
 const ThermalIndex = () => import('../modules/thermal/Index.vue')
@@ -96,6 +99,12 @@ const routes: RouteRecordRaw[] = [
         meta: { title: '磁场与电磁感应 - 高中物理可视化学习平台' }
       },
       {
+        path: 'electricity/electromagnetic-engines',
+        name: 'electromagnetic-engines',
+        component: ElectromagneticEngines,
+        meta: { title: '电磁力应用 - 高中物理可视化学习平台' }
+      },
+      {
         path: 'optics',
         name: 'optics',
         component: OpticsIndex,
@@ -118,6 +127,12 @@ const routes: RouteRecordRaw[] = [
         name: 'lenses',
         component: Lenses,
         meta: { title: '透镜成像 - 高中物理可视化学习平台' }
+      },
+      {
+        path: 'optics/interference',
+        name: 'interference',
+        component: DoubleSlit,
+        meta: { title: '杨氏双缝干涉 - 高中物理可视化学习平台' }
       },
       // 热学模块路由
       {

@@ -557,7 +557,7 @@ export class MaglevTrain3D {
       color: 0x90CAF9,
       metalness: 0.2,
       roughness: 0.1,
-      transparent: true,
+      transparent: true, 
       opacity: 0.9,
       transmission: 0.4,
       clearcoat: 1,
@@ -712,7 +712,7 @@ export class MaglevTrain3D {
     const magnetGeometry = new THREE.BoxGeometry(trainLength - 1, 0.2, trainWidth - 0.4);
     const magnet = new THREE.Mesh(magnetGeometry, magnetMaterial);
     magnet.position.y = this.levitationHeight / 5 - 0.9;
-    magnet.castShadow = true;
+      magnet.castShadow = true;
     magnet.receiveShadow = true;
     trainGroup.add(magnet);
     
@@ -879,10 +879,10 @@ export class MaglevTrain3D {
       
       const points = curve.getPoints(20);
       const geometry = new THREE.BufferGeometry().setFromPoints(points);
-      const material = new THREE.LineBasicMaterial({
+      const material = new THREE.LineBasicMaterial({ 
         color: 0xff8800,
         linewidth: 2,
-        transparent: true,
+        transparent: true, 
         opacity: 0.6 * (this.fieldStrength / 10 + 0.4)
       });
       
@@ -1250,7 +1250,7 @@ export class MaglevTrain3D {
       this.trainPosition = 0;
     }
     
-    // 更新列车位置
+      // 更新列车位置
     if (this.trainMesh) {
       // 将百分比位置转换为实际坐标
       this.trainMesh.position.x = -35 + this.trainPosition * 0.7;

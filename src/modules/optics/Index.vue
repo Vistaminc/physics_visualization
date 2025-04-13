@@ -47,6 +47,18 @@
                 </div>
               </router-link>
             </li>
+            
+            <li class="nav-item">
+              <router-link to="/optics/double-slit" class="nav-link">
+                <div class="nav-icon">
+                  <el-icon><SetUp /></el-icon>
+                </div>
+                <div class="nav-info">
+                  <span class="nav-label">杨氏双缝干涉</span>
+                  <span class="nav-description">光的波粒二象性</span>
+                </div>
+              </router-link>
+            </li>
           </ul>
         </div>
         
@@ -217,7 +229,7 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { View, ZoomIn, Operation, ArrowRight, Star, StarFilled, Document, VideoPlay, List } from '@element-plus/icons-vue'
+import { View, ZoomIn, Operation, ArrowRight, Star, StarFilled, Document, VideoPlay, List, SetUp } from '@element-plus/icons-vue'
 
 const router = useRouter()
 

@@ -1,64 +1,13 @@
-# 物理可视化系统
+# 物理可视化平台
 
-一个基于Vue.js和PIXI.js构建的交互式物理现象可视化平台，旨在帮助学生直观理解复杂的物理概念。
+<div align="center">
 
-## 功能模块
+![版本](https://img.shields.io/badge/版本-1.1.0-blue)
+![许可证](https://img.shields.io/badge/许可证-MIT-green)
+![Vue](https://img.shields.io/badge/Vue-3.5.13-brightgreen)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7.2-blue)
 
-该项目包含多个物理学分支的可视化模块：
-
-### 电学 (Electricity)
-- 电路模拟：基础电路元件的连接与仿真
-- 电磁感应：电磁感应现象展示
-- 电磁引擎：电磁马达与发电机原理
-
-### 磁学 (Magnetism)
-- 磁场可视化：不同形状磁体的磁场分布
-- 电磁相互作用：带电粒子在磁场中的运动
-
-### 光学 (Optics)
-- 双缝干涉：杨氏双缝干涉实验模拟
-- 光的反射与折射：光路追踪演示
-
-### 力学 (Mechanics)
-- 牛顿运动定律：力与加速度关系
-- 弹性碰撞：动量守恒演示
-
-## 技术栈
-
-- 前端框架：Vue 3 + Composition API
-- 路由：Vue Router
-- 图形渲染：PIXI.js
-- 数学计算：Math.js
-- 物理引擎：Matter.js (力学模块)
-- 样式：SCSS
-
-## 开发指南
-
-### 安装依赖
-```
-npm install
-```
-
-### 本地开发服务器
-```
-npm run dev
-```
-
-### 构建生产版本
-```
-npm run build
-```
-
-## 添加新模块
-
-1. 在`src/modules/`下创建对应物理分支的目录（如果不存在）
-2. 添加Vue组件实现可视化功能
-3. 在`src/router/index.js`中添加路由配置
-4. 更新主页面导航栏以包含新模块
-
-## 贡献指南
-
-欢迎通过Pull Request或Issue参与项目开发和改进。新的物理模块、交互功能或UI优化建议均受欢迎。
+</div>
 
 ## 📖 项目介绍
 
